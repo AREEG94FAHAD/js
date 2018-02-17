@@ -1,0 +1,87 @@
+
+<html>
+<body>
+<div id = "data">
+    <form id = "person">    
+        <br><br>
+        Name: <input id = "name" name = "name" type = "text">
+        <br><br>
+        
+        Age: &nbsp;&nbsp; <input id = "age" name = "age" type = "text">
+        <br><br>
+        
+        <br>
+        <input id = "button" type = "button" value = " Reset " onclick = "ResetForm()">&nbsp;&nbsp;&nbsp;
+        <input id = "button" type = "button" value = " Add " onclick = "addRow()">
+        
+    </form>
+</div>
+
+
+<div id = "tab">
+        <table  border="0" id = "list" cellspacing = "0px" cellpadding = "20px" text-align = "center">
+            <thead>
+            
+            </thead>
+
+            <tbody>
+
+            </tbody>
+        </table>
+</div>
+
+<div id="myDynamicTable">
+        <input type="button" id="create" value="Click here" onclick="Javascript:addTable()">
+        <h1>CREATE TABLE PRESS BUTTON</BUTton:d></h1>
+        </div>
+<script>
+function addRow() {
+    
+    var myName = document.getElementById("name");
+    var age = document.getElementById("age");
+    var table = document.getElementById("list");
+
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+
+    row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">';
+    row.insertCell(1).innerHTML= myName.value;
+    row.insertCell(2).innerHTML= age.value;
+        
+    }
+
+function ResetForm() {
+    document.getElementById("person").reset();
+}
+function deleteRow(obj) {
+     
+     var index = obj.parentNode.parentNode.rowIndex;
+     var table = document.getElementById("list");
+     table.deleteRow(index);
+    
+ }
+ function addTable() {
+     
+     var myTableDiv = document.getElementById("myDynamicTable");
+      
+     var table = document.createElement('TABLE');
+     table.border='1';
+    
+     var tableBody = document.createElement('TBODY');
+     table.appendChild(tableBody);
+      
+     for (var i=0; i<3; i++){
+        var tr = document.createElement('TR');
+        tableBody.appendChild(tr);
+       
+        for (var j=0; j<4; j++){
+            var td = document.createElement('TD');
+            td.width='75';
+            td.appendChild(document.createTextNode("Cell " + i + "," + j));
+            tr.appendChild(td);
+        }
+     }
+     myTableDiv.appendChild(table);
+    
+ }
+</script>

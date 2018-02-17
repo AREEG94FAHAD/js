@@ -1,0 +1,18 @@
+<html>
+<head>
+    <SCRIPT language="javascript1.1">
+    gifHome = new Image(54,18)
+    gifHome.src = "2.jpg"
+    gifHome2 = new Image(54,18)
+    gifHome2.src = "1.png"
+    
+    function changeImg(cImg,ref) {
+    document.images[cImg].src = ref.src
+    }
+    </SCRIPT></head>
+<title></title>
+<A href="f.html" onMouseOver="changeImg('imgHome',gifHome2)"onMouseOut="changeImg('imgHome',gifHome)">
+<IMG src="2.jpg" border="0" name="imgHome" width="400" height="400">
+</A>
+</body>
+</html>
